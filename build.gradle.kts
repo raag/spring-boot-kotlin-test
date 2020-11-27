@@ -5,6 +5,7 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.10.RELEASE"
 	kotlin("jvm") version "1.4.10"
 	kotlin("plugin.spring") version "1.4.10"
+	kotlin("kapt") version "1.4.10"
 }
 
 group = "com.raag"
@@ -22,8 +23,10 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
   implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-	implementation("com.h2database:h2") // ucomment to test with memory database
-  
+	runtimeOnly("com.h2database:h2") // ucomment to test with memory database
+ 
+	implementation("org.mapstruct:mapstruct:1.3.1.Final")
+	kapt("org.mapstruct:mapstruct-processor:1.3.1.Final")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
